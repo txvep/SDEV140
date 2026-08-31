@@ -27,6 +27,8 @@ print(f"State sales tax: ${state_sales_tax:.2f}")
 print(f"County sales tax: ${county_sales_tax:.2f}")
 print(f"Total sales tax: ${total_sales_tax:.2f}")
 print(f"Total of the sale: ${total_sale:.2f}")
+print('Everardo Palos')
+
 
 
 
