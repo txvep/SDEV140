@@ -21,7 +21,7 @@ elif 20 <= packages_purchased <= 49:
     discount_rate = 0.20
 elif 50 <= packages_purchased <= 99:
     discount_rate = 0.30
-else packages_purchased >= 100
+elif packages_purchased >= 100:
     discount_rate = 0.40
 
 subtotal: float = packages_purchased * PRICE_PER_PACKAGE
