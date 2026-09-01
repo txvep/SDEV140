@@ -27,6 +27,7 @@
 
 """
 
+
 def get_restaurant_choices():
     # Define the restaurant options and their dietary restrictions
     restaurants = {
@@ -38,19 +39,21 @@ def get_restaurant_choices():
     }
 
     # Get user input for dietary restrictions
-    vegetarian: bool = input("Is anyone in your party a vegetarian? (yes/no) ").strip().lower() == 'yes'
-    vegan: bool = input("Is anyone in your party a vegan? (yes/no) ").strip().lower() == 'yes'
-    gluten_free: bool = input("Is anyone in your party gluten-free? (yes/no) ").strip().lower() == 'yes'
+vegetarian: str = str.lower(input("Is anyone in your party a vegetarian? (yes/no) "))
+vegan: str = str.lower(input("Is anyone in your party a vegan? (yes/no) "))
+gluten_free: str = str.lower(input("Is anyone in your party gluten-free? (yes/no) "))
 
     # Filter restaurants based on dietary restrictions
-    available_restaurants = []
-    for restaurant, restrictions in restaurants.items():
-        if (not vegetarian or restrictions["vegetarian"]) and \
-           (not vegan or restrictions["vegan"]) and \
-           (not gluten_free or restrictions["gluten_free"]):
-            available_restaurants.append(restaurant)
-    # Display the available restaurant choices
+if vegetarian == "yes":
+    restaurants = {name: info for name, info in restaurants.items() if info["vegetarian"]}
+if vegan == "yes":
+    restaurants = {name: info for name, info in restaurants.items() if info["vegan"]}
+if gluten_free == "yes":
+    restaurants = {name: info for name, info in restaurants.items() if info["gluten_free"]}
+
+    # Display the restaurant choices
     print("Here are your restaurant choices:")
-    for restaurant in available_restaurants:
+    for restaurant in restaurants.keys():
         print(restaurant)
-print("Everardo Palos")
+        
+
