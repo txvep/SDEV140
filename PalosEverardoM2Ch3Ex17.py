@@ -30,12 +30,12 @@
 
 def get_restaurant_choices():
     # Define the restaurant options and their dietary restrictions
-    restaurants = {
-        "Joe’s Gourmet Burgers": {"vegetarian": False, "vegan": False, "gluten_free": False},
+    restaurant_options = {
+        "Joe\'s Gourmet Burgers": {"vegetarian": False, "vegan": False, "gluten_free": False},
         "Main Street Pizza Company": {"vegetarian": True, "vegan": False, "gluten_free": True},
         "Corner Café": {"vegetarian": True, "vegan": True, "gluten_free": False},
-        "Mama’s Fine Italian": {"vegetarian": True, "vegan": False, "gluten_free": True},
-        "the Chef’s Kitchen": {"vegetarian": True, "vegan": True, "gluten_free": True}
+        "Mama\'s Fine Italian": {"vegetarian": True, "vegan": False, "gluten_free": True},
+        "the Chef\'s Kitchen": {"vegetarian": True, "vegan": True, "gluten_free": True}
     }
 
     # Get user input for dietary restrictions
@@ -44,16 +44,28 @@ vegan: str = str.lower(input("Is anyone in your party a vegan? (yes/no) "))
 gluten_free: str = str.lower(input("Is anyone in your party gluten-free? (yes/no) "))
 
     # Filter restaurants based on dietary restrictions
-if vegetarian == "yes":
-    restaurants = {name: info for name, info in restaurants.items() if info["vegetarian"]}
-if vegan == "yes":
-    restaurants = {name: info for name, info in restaurants.items() if info["vegan"]}
-if gluten_free == "yes":
-    restaurants = {name: info for name, info in restaurants.items() if info["gluten_free"]}
+available_restaurants = restaurant_options
+
+    if vegetarian == "yes":
+        available_restaurants = {
+            name: info for name, info in available_restaurants.items() if info["vegetarian"]
+        }
+    if vegan == "yes":
+        available_restaurants = {
+            name: info for name, info in available_restaurants.items() if info["vegan"]
+        }
+    if gluten_free == "yes":
+        available_restaurants = {
+            name: info for name, info in available_restaurants.items() if info["gluten_free"]
+        }
 
     # Display the restaurant choices
     print("Here are your restaurant choices:")
-    for restaurant in restaurants.keys():
+    for restaurant in available_restaurants:
         print(restaurant)
-        
+
+
+# Call the function to run the program
+get_restaurant_choices()
+
 
