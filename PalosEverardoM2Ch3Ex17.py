@@ -35,7 +35,7 @@ def get_restaurant_choices():
         "Main Street Pizza Company": {"vegetarian": True, "vegan": False, "gluten_free": True},
         "Corner Café": {"vegetarian": True, "vegan": True, "gluten_free": False},
         "Mama\'s Fine Italian": {"vegetarian": True, "vegan": False, "gluten_free": True},
-        "the Chef\'s Kitchen": {"vegetarian": True, "vegan": True, "gluten_free": True}
+        "the Chef\'s Kitchen": {"vegetarian": True, "vegan": True, "gluten_free": True},
     }
 
     # Get user input for dietary restrictions
