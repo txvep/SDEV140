@@ -44,5 +44,8 @@ if vegetarian == "yes" and vegan == "yes" and gluten_free == "no":
     print("Corner Café")
 if vegetarian == "yes" and vegan == "no" and gluten_free == "yes":
     print("Mama's Fine Italian")
+if vegetarian == "no" and vegan == "no" and gluten_free == "no":
+    print("Joe's Gourmet Burgers")
+
 
     
