@@ -29,23 +29,44 @@ Here is another example of the program’s output:
         The Chef’s Kitchen
 """
 
-    # Get user input for dietary restrictions
-vegetarian: str = str.lower(input("Is anyone in your party a vegetarian? (yes/no) "))
-vegan: str = str.lower(input("Is anyone in your party a vegan? (yes/no) "))
-gluten_free: str = str.lower(input("Is anyone in your party gluten-free? (yes/no) "))
 
-    # Display restaurant choices based on dietary restrictions
+Restaurant_list = { "Main Street Pizza Company": {"Vegetarian": "Yes", "Vegan": "No", "Gluten-Free": "Yes"},
+                   "Corner Café": {"Vegetarian": "Yes", "Vegan": "Yes", "Gluten-Free": "No"},
+                   "Mama's Fine Italian": {"Vegetarian": "Yes", "Vegan": "No", "Gluten-Free": "Yes"},
+                   "The Chef's Kitchen": {"Vegetarian": "Yes", "Vegan": "Yes", "Gluten-Free": "Yes"},
+                   "Joe's Gourmet Burgers": {"Vegetarian": "No", "Vegan": "No", "Gluten-Free": "No"}}
+
+
+# Get user input for dietary restrictions
+vegetarian: str = input("Is anyone in your party a vegetarian? (Yes/No) ").lower()
+vegan: str = input("Is anyone in your party a vegan? (Yes/No) ").lower()
+gluten_free: str = input("Is anyone in your party gluten-free? (Yes/No) ").lower()
+
+requirements = []
+if vegetarian == "yes":
+    requirements.append("Vegetarian")
+if vegan == "yes":
+    requirements.append("Vegan")
+if gluten_free == "yes":
+    requirements.append("Gluten-Free")
+
+# Find restaurants that satisfy every required restriction
+matches = []
+for name, options in Restaurant_list.items():
+    if all(options[req] == "Yes" for req in requirements):
+        matches.append(name)
+
+# Display results
 print("Here are your restaurant choices:")
-if vegetarian == "yes" and vegan == "yes" and gluten_free == "yes":
-    print("The Chef's Kitchen")
-if vegetarian == "yes" and vegan == "no" and gluten_free == "yes":
-    print("Main Street Pizza Company")
-if vegetarian == "yes" and vegan == "yes" and gluten_free == "no":
-    print("Corner Café")
-if vegetarian == "yes" and vegan == "no" and gluten_free == "yes":
-    print("Mama's Fine Italian")
-if vegetarian == "no" and vegan == "no" and gluten_free == "no":
-    print("Joe's Gourmet Burgers")
+if matches:
+    for restaurant in matches:
+        print(restaurant)
+else:
+    print("Sorry, no restaurants match all of those needs.")
+
+print("Everardo Palos")
+
+
 
 
     
