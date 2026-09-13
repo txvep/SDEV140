@@ -13,4 +13,9 @@ def falling_distance(t):
     d = 0.5 * g * t * 2
     return d
 
-print 
+print("Time (s)\tdistance (m)")
+print("-" * 25)
+for time in range (1, 11):
+    distance = falling_distance(time)
+    print(f"{time}\t\t{distance:.2f}")
+    
