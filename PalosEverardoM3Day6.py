@@ -10,23 +10,41 @@ import random
 num_range_min: int = 1
 num_range_max: int = 500
 
-print("Random Number Generator and Statistics Program")
-total_numbers = int(input("Enter the total number of random numbers to generate: "))
+while True:
+    try:
+        total_numbers = int(input("Enter the total number of random numbers to generate: "))
+        if total_numbers <= 0:
+            print("Please enter a positive integer.")
+            continue
+        break
+    except ValueError:
+        print("Please enter a valid integer.")
+        raise SystemExit
 
 with open("random_numbers.txt", "w") as f:
     for _ in range(total_numbers):
-        number = random.randint(num_range_min, num_range_max)
-        f.write(str(number) + "\n")
+        numbers_input = random.randint(num_range_min, num_range_max)
+        f.write(str(numbers_input) + "\n")
 
 print("Random numbers written to file.")
 
 with open("random_numbers.txt", "r") as f:
-    numbers = [int(line.strip()) for line in f]
-    total = len(numbers)
-    sum_numbers = sum(numbers)
-    average = sum_numbers / total if total > 0 else 0
+    numbers: list[int] = []
+    for line in f:
+        try:
+            number = int(line.strip())
+            numbers.append(number)
+        except ValueError:
+            print(f"Invalid number found in file: {line.strip()}")
 
+display_list: list[int] = numbers
+total: int = len(numbers)
+sum_numbers: int = sum(numbers)
+average: float = sum_numbers / total if total > 0 else 0
+
+print("Random Numbers:")
+for number in display_list:
+    print(number)
 print(f"Total numbers: {total}")
 print(f"Sum of numbers: {sum_numbers}")
 print(f"Average: {average}")
-
