@@ -25,7 +25,7 @@ The cat ran home quickly.
 words = []
 
 while True:
-    line = input().strip()
+    line: str = input().strip()
 
     if line == "" or line.lower() == "done":
         break
@@ -36,5 +36,12 @@ if words:
     sentence = " ".join(words)
     sentence = sentence[0].upper() + sentence[1:] + "."
     print(sentence)
-    print(len(words))
 
+    count = len(words)
+    if count == 1:
+        print(f"There is {count} word in the sentence.")
+    else:
+        print(f"There are {count} words in the sentence.")
+else:
+    print(".")
+    print("There are 0 words in the sentence.")
