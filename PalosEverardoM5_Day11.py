@@ -39,12 +39,6 @@ class employee:
     def set_id(self, id):
         self.__id = id
 
-    def introduce(self):
-        return f"Hello, {self.__name}, {self.__id}"
-
-    def __str__(self):
-        return f"Employee Name: {self.__name}\nEmployee Number: {self.__id}"
-
 
 class productionWorker(employee):
     def __init__(self, name, id, shift, pay):
@@ -66,32 +60,29 @@ class productionWorker(employee):
     def set_pay_rate(self, pay):
         self.__pay = pay
 
-    def __str__(self):
-        return (
-            f"{super().__str__()}\n"
-            f"Shift Number: {self.__shift}\n"
-            f"Hourly Pay Rate: ${self.__pay:.2f}"
-        )
-
 
 # Program to create a ProductionWorker object and test accessors/mutators
-worker = productionWorker("Everardo", 1001, 1, 18.50)
+def main():
+    worker = productionWorker("Everardo Palos", "1505", 1, 25.00)
 
-print("Original object state:")
-print(f"Name: {worker.get_name()}")
-print(f"ID: {worker.get_id()}")
-print(f"Shift: {worker.get_shift()}")
-print(f"Pay Rate: ${worker.get_pay_rate():.2f}")
-print(worker)
+    print("Original Employee state:")
+    print(f"Name: {worker.get_name()}")
+    print(f"ID: {worker.get_id()}")
+    print(f"Shift: {worker.get_shift()}")
+    print(f"Pay Rate: ${worker.get_pay_rate():.2f}")
+    print(worker)
 
-worker.set_name("Everardo Palos")
-worker.set_id(2045)
-worker.set_shift(2)
-worker.set_pay_rate(22.75)
+    worker.set_name("Everardo Palos")
+    worker.set_id("2505")
+    worker.set_shift(2)
+    worker.set_pay_rate(28.50)
 
-print("\nRevised object state:")
-print(f"Name: {worker.get_name()}")
-print(f"ID: {worker.get_id()}")
-print(f"Shift: {worker.get_shift()}")
-print(f"Pay Rate: ${worker.get_pay_rate():.2f}")
-print(worker)
+    print("\nRevised Employee state:")
+    print(f"Name: {worker.get_name()}")
+    print(f"ID: {worker.get_id()}")
+    print(f"Shift: {worker.get_shift()}")
+    print(f"Pay Rate: ${worker.get_pay_rate():.2f}")
+    print(worker)
+
+if __name__ == "__main__":
+    main()
