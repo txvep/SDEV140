@@ -1,5 +1,12 @@
 {
     "python-envs.defaultEnvManager": "ms-python.python:system",
     "python.analysis.typeCheckingMode": "standard",
-    "python.analysis.autoImportCompletions": true
+    "python.analysis.autoImportCompletions": true,
+    "python-envs.pythonProjects": [
+        {
+            "path": ".",
+            "envManager": "ms-python.python:system",
+            "packageManager": "ms-python.python:pip"
+        }
+    ]
 }
