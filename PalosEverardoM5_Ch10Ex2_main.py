@@ -4,7 +4,7 @@ After each call to the accelerate method, get the current speed of the car and d
 Then call the brake method five times. 
 After each call to the brake method, get the current speed of the car and display it.
 """
-from Car import Car
+from PalosEverardoM5_Ch10Ex2 import Car
 
 def main():
     # Create a Car object
